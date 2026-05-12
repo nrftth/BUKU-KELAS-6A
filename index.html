@@ -902,17 +902,19 @@ const pages = document.querySelectorAll(".page");
 
 let currentPage = 0;
 
-/* SOUND EFFECT */
+/* SETUP AWAL */
 
-const flipSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2053/2053-preview.mp3");
+pages.forEach((page, index) => {
 
-flipSound.volume = 0.4;
+    page.style.zIndex = pages.length - index;
 
-/* SETUP Z INDEX */
+});
 
-function updateZIndex(){
+/* UPDATE Z-INDEX */
 
-    pages.forEach((page,index)=>{
+function updatePages(){
+
+    pages.forEach((page, index) => {
 
         if(index < currentPage){
 
@@ -928,24 +930,19 @@ function updateZIndex(){
 
 }
 
-updateZIndex();
+/* FLIP PAGE */
 
-/* PAGE FLIP */
+pages.forEach((page, index) => {
 
-pages.forEach((page,index)=>{
-
-    page.addEventListener("click",(e)=>{
+    page.addEventListener("click", (e) => {
 
         const rect = page.getBoundingClientRect();
 
-        const clickX = e.clientX - rect.left;
+        const x = e.clientX - rect.left;
 
-        flipSound.currentTime = 0;
-        flipSound.play();
+        /* KLIK KANAN = NEXT */
 
-        /* NEXT */
-
-        if(clickX > rect.width / 2){
+        if(x > rect.width / 2){
 
             if(index === currentPage){
 
@@ -953,13 +950,13 @@ pages.forEach((page,index)=>{
 
                 currentPage++;
 
-                updateZIndex();
+                updatePages();
 
             }
 
         }
 
-        /* PREVIOUS */
+        /* KLIK KIRI = PREVIOUS */
 
         else{
 
@@ -969,7 +966,7 @@ pages.forEach((page,index)=>{
 
                 currentPage--;
 
-                updateZIndex();
+                updatePages();
 
             }
 
@@ -977,7 +974,7 @@ pages.forEach((page,index)=>{
 
     });
 
-})
+});
 
 </script>
 
