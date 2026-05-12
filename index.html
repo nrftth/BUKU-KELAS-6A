@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buku Kelas 6A</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:
+    radial-gradient(circle at top,#444,#111);
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Poppins',sans-serif;
+}
+
+.book{
+    position:relative;
+    width:1000px;
+    height:650px;
+    perspective:4000px;
+}
+
+.page{
+    position:absolute;
+    width:500px;
+    height:650px;
+    right:0;
+    top:0;
+    transform-origin:left;
+    transform-style:preserve-3d;
+    transition:1.2s cubic-bezier(.77,0,.175,1);
+    cursor:pointer;
+}
+
+.page.flipped{
+    transform:rotateY(-180deg);
+}
+
+.front,
+.back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    backface-visibility:hidden;
+    overflow:hidden;
+    border-radius:0 18px 18px 0;
+    background:#f6ecd2;
+    box-shadow:
+    0 0 25px rgba(0,0,0,.4),
+    inset 0 0 50px rgba(0,0,0,.07);
+}
+
+.front::before,
+.back::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:
+    repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 28px,
+        rgba(0,0,0,.045) 29px
+    );
+    pointer-events:none;
+}
+
+.back{
+    transform:rotateY(180deg);
+}
+
+.cover{
+    background:
+    linear-gradient(145deg,#5d4037,#2d1b16);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:40px;
+}
+
+.cover h1{
+    font-size:60px;
+    letter-spacing:4px;
+}
+
+.cover p{
+    margin-top:20px;
+    opacity:.8;
+    font-size:20px;
+}
+
+.content{
+    padding:35px;
+    position:relative;
+    height:100%;
+}
+
+.top{
+    display:flex;
+    gap:20px;
+}
+
+.photo{
+    width:185px;
+    height:230px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow:0 12px 20px rgba(0,0,0,.25);
+}
+
+.info{
+    flex:1;
+}
+
+.name{
+    font-size:30px;
+    font-weight:700;
+    color:#3d2c21;
+}
+
+.role{
+    color:#795548;
+    margin-top:6px;
+    font-weight:600;
+    font-size:18px;
+}
+
+.section{
+    margin-top:18px;
+}
+
+.label{
+    font-weight:700;
+    color:#4e342e;
+}
+
+.value{
+    margin-top:4px;
+    color:#333;
+    line-height:1.5;
+}
+
+.motto{
+    margin-top:28px;
+    background:rgba(255,255,255,.6);
+    border-left:5px solid #6d4c41;
+    border-radius:12px;
+    padding:18px;
+    font-family:'Caveat',cursive;
+    font-size:26px;
+    color:#4e342e;
+    line-height:1.4;
+}
+
+.page-number{
+    position:absolute;
+    bottom:18px;
+    right:25px;
+    font-size:14px;
+    color:#555;
+}
+
+.hint{
+    position:fixed;
+    bottom:20px;
+    color:white;
+    opacity:.7;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+@media(max-width:1100px){
+    .book{
+        transform:scale(.7);
+    }
+}
+
+@media(max-width:700px){
+    .book{
+        transform:scale(.45);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="book" id="book">
+
+<!-- COVER -->
+
+<div class="page" style="z-index:999;">
+<div class="front cover">
+<h1>BUKU KELAS 6A</h1>
+<p>Kenangan • Cita-Cita • Motto • Lagu Favorit</p>
+<p style="margin-top:40px;">klik halaman untuk membalik 📖</p>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 1 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/nAoMqdD.jpg">
+
+<div class="info">
+<div class="name">Ibu Rahmi 👩‍🏫</div>
+<div class="role">Wali Kelas</div>
+
+<div class="section">
+<div class="label">Motto</div>
+<div class="value">-</div>
+</div>
+
+</div>
+</div>
+
+<div class="page-number">1</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 2 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/WHoawyS.jpg">
+
+<div class="info">
+<div class="name">Alqaqa Ibn Amr "Alqa"</div>
+<div class="role">Pebisnis</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Bersepeda</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">-</div>
+</div>
+</div>
+</div>
+
+<div class="motto">"-"</div>
+
+<div class="page-number">2</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 3 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/JMWgIYs.jpg">
+
+<div class="info">
+<div class="name">Almira Shidqiya</div>
+<div class="role">Pengusaha</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Nyanyi</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Bertaut - Nadin Amizah</div>
+</div>
+</div>
+</div>
+
+<div class="motto">
+teruslah melangkah untuk meraih masa depan, walaupun di setiap langkah ada saja masalah
+</div>
+
+<div class="page-number">3</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 4 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/DiFPYxP.jpg">
+
+<div class="info">
+<div class="name">Azka Ihsana Nurfattah</div>
+<div class="role">Electrical Engineer</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Mencoba Hal Baru</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Ini Abadi - Perungggu</div>
+</div>
+</div>
+</div>
+
+<div class="motto">
+Lakukan apa yang kau mau, sekarang. Saat hatimu bergerak, jangan kau larang. Hidup ini tak ada artinya, maka kau bebas mengarang maknanya. Seorang!
+</div>
+
+<div class="page-number">4</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 5 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/AnCXQfR.jpg">
+
+<div class="info">
+<div class="name">Hayfa Nayla Fitria</div>
+<div class="role">Apoteker</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Berenang / Baca Novel</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Sorai</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+from little steps to big dreams
+</div>
+
+<div class="page-number">5</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 6 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/aGcDJwm.jpg">
+
+<div class="info">
+<div class="name">M. Kinan Aftadithya Naufaldy</div>
+<div class="role">Ketua Kelas • Arsitek</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Berenang</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">KASIH MATAN DI HAWAS</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+Dream, Believe, Achieve
+</div>
+
+<div class="page-number">6</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 7 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/h4TQGGH.jpg">
+
+<div class="info">
+<div class="name">Echa</div>
+<div class="role">Fashion Designer</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Menggambar</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Enchanted - Taylor Swift</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+first you learn, then you remove the L
+</div>
+
+<div class="page-number">7</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 8 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/iIZRjwG.jpg">
+
+<div class="info">
+<div class="name">Muhammad Abidzar "Abi"</div>
+<div class="role">Brimob</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Memasak</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Anugerah Terindah</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+sama sakit, sama susah
+</div>
+
+<div class="page-number">8</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 9 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/SDygFKk.jpg">
+
+<div class="info">
+<div class="name">Muhammad Hafiy</div>
+<div class="role">Chef</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Memasak & Main Game</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Go Away - Weezer</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+jangan menyerah walaupun berserah
+</div>
+
+<div class="page-number">9</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 10 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/p7KQzQH.jpg">
+
+<div class="info">
+<div class="name">Muhammad Luthfi Hadi</div>
+<div class="role">Pelukis</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Melukis</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Lipgloss - Charli XCX feat Cupcakke</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+stop gaptek
+</div>
+
+<div class="page-number">10</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 11 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/I2Fj5x2.jpg">
+
+<div class="info">
+<div class="name">Muhammad Nizar Munawwar</div>
+<div class="role">Polisi</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Main Bola</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Ada Titik-Titik di Ujung Doa-Doa</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+Ketika males berangkat sekolah, tapi keinget kalau tahun ini terakhir kalinya bareng sama kalian
+</div>
+
+<div class="page-number">11</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+<!-- 12 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/u7fA9MQ.jpg">
+
+<div class="info">
+<div class="name">Muhammad Noval</div>
+<div class="role">Wakil Kelas • Polisi</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Nonton</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">-</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+semoga kita bisa sukses semua, menemukan jalan terbaik masing-masing, dan tetap saling mengingat walau nanti melangkah ke arah yang berbeda
+</div>
+
+<div class="page-number">12</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 13 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/mxf7MpL.jpg">
+
+<div class="info">
+<div class="name">Muhammad Tsaqif Nur Rayyan "Rayan"</div>
+<div class="role">Polisi</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Badminton</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Labirin - Tulus</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+the best way to get started is to quit talking and begin doing
+</div>
+
+<div class="page-number">13</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 14 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/aRoMEmO.jpg">
+
+<div class="info">
+<div class="name">Nabila El Anabel</div>
+<div class="role">Hukum / Pengacara</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Main Squishy</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Firasat</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+Grow through what you go through
+</div>
+
+<div class="page-number">14</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 15 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/3IYFQl5.jpg">
+
+<div class="info">
+<div class="name">Nadia Zalfa Aridha</div>
+<div class="role">Dokter</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Traveling dan Mendengarkan Musik</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Treat You Better - Shawn Mendes</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+tetap baik meski tidak mudah
+</div>
+
+<div class="page-number">15</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 16 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/iHEPKN8.jpg">
+
+<div class="info">
+<div class="name">Riska Irliani</div>
+<div class="role">Guru</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Membaca Buku</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">8 Letters - Why Don't We</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+pelan-pelan aja, ga harus sempurna. hujan, lagu tenang, dan pikiran kosong. cape ya? istirahat dulu. jadi lembut bukan berarti lemah.
+</div>
+
+<div class="page-number">16</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 17 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/EwxoEic.jpg">
+
+<div class="info">
+<div class="name">Tiara Ramadhania</div>
+<div class="role">Polwan</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Silat</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Lantas - Luicy Juicy</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+Hidup bukan tentang menunggu badai berlalu, tapi belajar menari di tengah hujan
+</div>
+
+<div class="page-number">17</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- 18 -->
+
+<div class="page">
+<div class="front">
+<div class="content">
+
+<div class="top">
+<img class="photo" src="https://i.imgur.com/taGoUBE.jpg">
+
+<div class="info">
+<div class="name">Zara Sherin Chrestianto</div>
+<div class="role">Dokter</div>
+
+<div class="section">
+<div class="label">Hobi</div>
+<div class="value">Nyanyi</div>
+</div>
+
+<div class="section">
+<div class="label">Lagu Favorit</div>
+<div class="value">Enchanted - Taylor Swift</div>
+</div>
+
+</div>
+</div>
+
+<div class="motto">
+everything you lose is a step you take
+</div>
+
+<div class="page-number">18</div>
+
+</div>
+</div>
+<div class="back"></div>
+</div>
+
+<!-- PENUTUP -->
+
+<div class="page">
+<div class="front cover">
+
+<h1 style="font-size:48px;">TERIMA KASIH</h1>
+
+<p style="max-width:600px; line-height:1.8; margin-top:30px;">
+untuk semua kenangan, tawa, tugas, cerita, dan perjalanan selama di kelas 6A ✨
+</p>
+
+<p style="margin-top:50px;">
+semoga sukses semuanya 💛
+</p>
+
+</div>
+
+<div class="back cover">
+<h1 style="font-size:40px;">THE END 📖</h1>
+</div>
+
+</div>
+
+</div>
+
+<div class="hint">
+klik halaman untuk membalik buku
+</div>
+
+<script>
+
+const pages = document.querySelectorAll(".page");
+
+let currentPage = 0;
+
+/* SOUND EFFECT */
+
+const flipSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2053/2053-preview.mp3");
+
+flipSound.volume = 0.4;
+
+/* SETUP Z INDEX */
+
+function updateZIndex(){
+
+    pages.forEach((page,index)=>{
+
+        if(index < currentPage){
+
+            page.style.zIndex = index;
+
+        }else{
+
+            page.style.zIndex = pages.length - index;
+
+        }
+
+    });
+
+}
+
+updateZIndex();
+
+/* PAGE FLIP */
+
+pages.forEach((page,index)=>{
+
+    page.addEventListener("click",(e)=>{
+
+        const rect = page.getBoundingClientRect();
+
+        const clickX = e.clientX - rect.left;
+
+        flipSound.currentTime = 0;
+        flipSound.play();
+
+        /* NEXT */
+
+        if(clickX > rect.width / 2){
+
+            if(index === currentPage){
+
+                page.classList.add("flipped");
+
+                currentPage++;
+
+                updateZIndex();
+
+            }
+
+        }
+
+        /* PREVIOUS */
+
+        else{
+
+            if(index === currentPage - 1){
+
+                page.classList.remove("flipped");
+
+                currentPage--;
+
+                updateZIndex();
+
+            }
+
+        }
+
+    });
+
+})
+
+</script>
+
+</body>
+</html>
